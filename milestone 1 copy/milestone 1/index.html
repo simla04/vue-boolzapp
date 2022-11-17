@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- fontawesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--bootstrap  -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous">
+        <!-- collegamento style.css -->
+        <link rel="stylesheet" href="./assets/style.css">
+        <title>Boolzapp</title>
+    </head>
+    <body>
+
+        <div id="app" class="d-flex justify-content-center align-items-center">
+            <div class="bg-white h-75 w-75">
+                <div class="container-fluid h-100 p-0">
+                    <div class="row h-100">
+
+                        <!-- colonna di sinistra -->
+                        <div class="col-5 " style="border: dashed">
+                            <div class="d-flex justify-content-between align-items-center py-3
+                                px-3">
+                                <div class="py-3 ">
+                                    <img src="./assets/img/avatar_2.jpg" alt=""
+                                        id="mio-avatar" class="rounded-circle
+                                        w-25">
+                                    <span>Nome Utente</span>
+                                </div>
+                                <!-- div con icone -->
+                                <div class="">
+                                    <i class="fa-solid fa-circle-notch mx-2"></i>
+                                    <i class="fa-solid fa-message mx-2"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical
+                                        mx-2"></i>
+                                </div>
+                            </div>
+
+
+                            <!-- area notifiche -->
+                            <div id="area-notifiche" class="d-flex align-items-center p-3">
+                                <i class="fa-regular fa-bell-slash bg-white
+                                    rounded-circle p-2 me-3"></i>
+                                <div class="">
+                                    <h5>Ricevi notifiche</h5>
+                                    <span>Attiva notifiche</span>
+                                </div>
+                            </div>
+
+                            <!-- area/input di ricerca -->
+                            <div class="px-3 py-1 d-flex align-items-center">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"
+                                        id="basic-addon1">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <input type="text" class="form-control"
+                                        placeholder="Username"
+                                        aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+
+                            <!-- area contatti/chat -->
+                            <div class="">
+                                <!-- <img src="./assets/img/avatar_1.jpg" alt="avatar1" class="rounded-circle avatar-chat"> -->
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex
+                                        align-items-center" v-for="(elem, index) in contacts">
+                                        <!-- qui è stato usato il v-bind: -->
+                                        <img :src="'./assets/img/avatar' + elem.avatar + '.jpg' "
+                                            alt="avatar1" class="rounded-circle
+                                            avatar-chat me-2">
+                                        <h6>{{ elem.name }}</h6>
+                                    </li>
+
+                                    <!-- <li class="list-group-item d-flex
+                                        align-items-center">
+                                        <img src="./assets/img/avatar_2.jpg"
+                                            alt="avatar2" class="rounded-circle
+                                            avatar-chat">
+                                        <h6>Laura</h6>
+                                    </li>-->
+                                    
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!-- colonna di destra -->
+                        <div class="col-7 d-flex flex-column" style="border: dashed">
+
+                            <!-- avatar dinamico -->
+                            <div class="py-3 d-flex justify-content-between
+                                align-items-center px-3">
+                                <div class="">
+                                    <img
+                                        src="./assets/img/avatar_1.jpg"
+                                        alt="avatar dinamico"
+                                        class="rounded-circle w-25">
+                                    <span>Laura</span>
+                                </div>
+
+                                <!-- tre icone -->
+                                <div>
+                                    <i class="fa-solid fa-circle-notch mx-2"></i>
+                                    <i class="fa-solid fa-message mx-2"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical
+                                        mx-2"></i>
+                                </div>
+                            </div>
+
+
+                            <!-- area chat -->
+                            <div id="area-chat" class="flex-grow-1 p-3 d-flex flex-column">
+                                <div class="sent">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.  </p>
+                                </div>
+                                <div class="received">
+                                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis iusto ad accusamus rem minus saepe in sapiente facere quis repudiandae quia cum quasi, voluptatum laudantium, nam quod sint autem a. </p>
+                                </div>
+                                
+                            </div>
+
+
+                            <!-- input area messaggio -->
+                            <div class="input-group d-flex align-items-center py-2">
+                                <!-- icona smile -->
+                                <i class="fa-regular fa-face-smile mx-3"></i>
+                                <input type="text" class="form-control"
+                                    placeholder="Scrivi un messaggio"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1">
+
+                                    <!-- icona microfono per audio -->
+                                    <i class="fa-solid fa-microphone mx-3"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- Bootstrap 5 script -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous">
+    </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+            integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+            crossorigin="anonymous">
+    </script>
+        <!-- vue 2 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!-- collegamento javascript= main.js -->
+        <script src="./assets/main.js"></script>
+    </body>
+</html>
