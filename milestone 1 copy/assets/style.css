@@ -19,7 +19,7 @@
 }
 
 #area-chat{
-    background-image: url('/assets/img/mine.jpg');
+    background-image: url('./img/mine.jpg');
 }
 
 .sent{

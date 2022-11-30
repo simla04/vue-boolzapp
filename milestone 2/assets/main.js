@@ -1,9 +1,10 @@
+        
 var app = new Vue(
     {
         el: '#app',
         data: {
-            contacts: [
-                {
+            indiceDinamico: 0,
+            contacts: [{
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
@@ -69,103 +70,33 @@ var app = new Vue(
                 }
                 ],
                 },
-                {
-                name: 'Alessandro B.',
-                avatar: '_4',
-                visible: true,
-                messages: [
-                {
-                date: '10/01/2020 15:30:55',
-                message: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
-                },
-                {
-                date: '10/01/2020 15:50:00',
-                message: 'Si, ma preferirei andare al cinema',
-                status: 'received'
-                }
-                ],
-                },
-                {
-                name: 'Alessandro L.',
-                avatar: '_5',
-                visible: true,
-                messages: [
-                {
-                date: '10/01/2020 15:30:55',
-                message: 'Ricordati di chiamare la nonna',
-                status: 'sent'
-                },
-                {
-                date: '10/01/2020 15:50:00',
-                message: 'Va bene, stasera la sento',
-                status: 'received'
-                }
-                ],
-                },
-                {
-                name: 'Claudia',
-                avatar: '_6',
-                visible: true,
-                messages: [
-                {
-                date: '10/01/2020 15:30:55',
-                message: 'Ciao Claudia, hai novità?',
-                status: 'sent'
-                },
-                {
-                date: '10/01/2020 15:50:00',
-                message: 'Non ancora',
-                status: 'received'
-                },
-                {
-                date: '10/01/2020 15:51:00',
-                message: 'Nessuna nuova, buona nuova',
-                status: 'sent'
-                }
-                ],
-                },
-                // {
-                // name: 'Federico',
-                // avatar: '_7',
-                // visible: true,
-                // messages: [
-                // {
-                // date: '10/01/2020 15:30:55',
-                // message: 'Fai gli auguri a Martina che è il suo compleanno!',
-                // status: 'sent'
-                // },
-                // {
-                // date: '10/01/2020 15:50:00',
-                // message: 'Grazie per avermelo ricordato, le scrivo subito!',
-                // status: 'received'
-                // }
-                // ],
-                // },
-                // {
-                // name: 'Davide',
-                // avatar: '_8',
-                // visible: true,
-                // messages: [
-                // {
-                // date: '10/01/2020 15:30:55',
-                // message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                // status: 'received'
-                // },
-                // {
-                // date: '10/01/2020 15:50:00',
-                // message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                // status: 'sent'
-                // },
-                // {
-                // date: '10/01/2020 15:51:00',
-                // message: 'OK!!',
-                // status: 'received'
-                // }
-                // ],
-                // }
-            ]    
-        }
+            ]
+        },
+        mounted() {
+
+        },
+        methods: {
+            miaFunzione(elem,index){
+                // modifica indiceDinamico
+                this.indiceDinamico = index;
+            },
+            getLastHourContacts(elem){
+                let lastDate = elem.messages[ elem.messages.length-1 ].date
+                lastDate = lastDate.split(' ')
+                console.log( lastDate[1])
+
+                return lastDate[1]
+            },
+            getLastHourMessages(elem){
+                let date = elem.date;
+                date = date.split(' ')
+
+                return date[1];
+        //         split(' ')
+        // [ 'info1', 'info2' ]
+        // array[1]
+            }
+        } 
     } )
 
 
